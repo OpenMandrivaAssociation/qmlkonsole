@@ -3,7 +3,7 @@
 
 Name:		qmlkonsole
 Version:	0.0
-Release:	%{?snapshot:0.%{snapshot}.}1
+Release:	%{?snapshot:0.%{snapshot}.}2
 Summary:	Terminal application for Plasma Mobile
 Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/master/qmlkonsole-master.tar.bz2
 License:	GPLv3
@@ -20,6 +20,7 @@ BuildRequires:	cmake(Qt5QuickControls2)
 BuildRequires:	cmake(KF5Kirigami2)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Config)
+Requires:	qml(QMLTermWidget)
 
 %description
 Terminal application for Plasma Mobile
