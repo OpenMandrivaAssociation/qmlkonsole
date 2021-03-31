@@ -1,11 +1,15 @@
-%define snapshot 20200826
-%define commit 681221de51a234567ad832fc52441a4bd267741c
+#define snapshot 20200826
+#define commit 681221de51a234567ad832fc52441a4bd267741c
 
 Name:		qmlkonsole
-Version:	0.0
-Release:	%{?snapshot:0.%{snapshot}.}2
+Version:	0.1
+Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Terminal application for Plasma Mobile
+%if 0%{?snapshot}
 Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/master/qmlkonsole-master.tar.bz2
+%else
+Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/v%{version}/qmlkonsole-v%{version}.tar.bz2
+%endif
 License:	GPLv3
 Group:		Applications/Productivity
 BuildRequires:	cmake
@@ -26,7 +30,11 @@ Requires:	qml(QMLTermWidget)
 Terminal application for Plasma Mobile
 
 %prep
+%if 0%{?snapshot}
 %autosetup -p1 -n qmlkonsole-master
+%else
+%autosetup -p1 -n qmlkonsole-v%{version}
+%endif
 %cmake_kde5 -G Ninja
 
 %build
