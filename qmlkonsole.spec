@@ -2,13 +2,13 @@
 #define commit 681221de51a234567ad832fc52441a4bd267741c
 
 Name:		qmlkonsole
-Version:	0.1
+Version:	21.06
 Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?snapshot}
 Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/master/qmlkonsole-master.tar.bz2
 %else
-Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/v%{version}/qmlkonsole-v%{version}.tar.bz2
+Source0:	https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
 %endif
 License:	GPLv3
 Group:		Applications/Productivity
@@ -33,7 +33,7 @@ Terminal application for Plasma Mobile
 %if 0%{?snapshot}
 %autosetup -p1 -n qmlkonsole-master
 %else
-%autosetup -p1 -n qmlkonsole-v%{version}
+%autosetup -p1
 %endif
 %cmake_kde5 -G Ninja
 
@@ -42,8 +42,9 @@ Terminal application for Plasma Mobile
 
 %install
 %ninja_install -C build
+%find_lang qmlkonsole
 
-%files
+%files -f qmlkonsole.lang
 %{_bindir}/qmlkonsole
 %{_datadir}/applications/org.kde.mobile.qmlkonsole.desktop
 %{_datadir}/config.kcfg/terminalsettings.kcfg
