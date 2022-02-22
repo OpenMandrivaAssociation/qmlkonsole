@@ -2,7 +2,7 @@
 #define commit 681221de51a234567ad832fc52441a4bd267741c
 
 Name:		qmlkonsole
-Version:	21.12
+Version:	22.02
 Release:	%{?snapshot:1.%{snapshot}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?snapshot}
