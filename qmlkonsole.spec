@@ -2,10 +2,10 @@
 #define commit 681221de51a234567ad832fc52441a4bd267741c
 
 Name:		qmlkonsole
-Version:	22.02
-Release:	%{?snapshot:1.%{snapshot}.}1
+Version:	22.04
+Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Terminal application for Plasma Mobile
-%if 0%{?snapshot}
+%if 0%{?snapshot:1}
 Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/master/qmlkonsole-master.tar.bz2
 %else
 Source0:	https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
@@ -42,9 +42,10 @@ Terminal application for Plasma Mobile
 
 %install
 %ninja_install -C build
-%find_lang qmlkonsole
+#%find_lang qmlkonsole
 
-%files -f qmlkonsole.lang
+%files
+# -f qmlkonsole.lang
 %{_bindir}/qmlkonsole
 %{_datadir}/applications/org.kde.mobile.qmlkonsole.desktop
 %{_datadir}/config.kcfg/terminalsettings.kcfg
