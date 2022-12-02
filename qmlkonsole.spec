@@ -2,7 +2,7 @@
 #define commit 681221de51a234567ad832fc52441a4bd267741c
 
 Name:		qmlkonsole
-Version:	22.09
+Version:	22.11
 Release:	%{?snapshot:1.%{snapshot}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?snapshot:1}
@@ -50,3 +50,4 @@ Terminal application for Plasma Mobile
 %{_datadir}/applications/org.kde.qmlkonsole.desktop
 %{_datadir}/config.kcfg/terminalsettings.kcfg
 %{_datadir}/metainfo/org.kde.qmlkonsole.appdata.xml
+%{_datadir}/icons/hicolor/scalable/apps/org.kde.qmlkonsole.svg
