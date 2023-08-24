@@ -1,14 +1,15 @@
-#define snapshot 20200826
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+#define git 20200826
 #define commit 681221de51a234567ad832fc52441a4bd267741c
 
 Name:		qmlkonsole
-Version:	22.11
-Release:	%{?snapshot:1.%{snapshot}.}1
+Version:	23.08.0
+Release:	%{?git:0.%{git}.}1
 Summary:	Terminal application for Plasma Mobile
-%if 0%{?snapshot:1}
+%if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/master/qmlkonsole-master.tar.bz2
 %else
-Source0:	https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
+Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 %endif
 License:	GPLv3
 Group:		Applications/Productivity
@@ -31,7 +32,7 @@ Requires:	qml(QMLTermWidget)
 Terminal application for Plasma Mobile
 
 %prep
-%if 0%{?snapshot}
+%if 0%{?git}
 %autosetup -p1 -n qmlkonsole-master
 %else
 %autosetup -p1
