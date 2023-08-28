@@ -26,6 +26,7 @@ BuildRequires:	cmake(KF5Kirigami2)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5WindowSystem)
 Requires:	qml(QMLTermWidget)
 
 %description
