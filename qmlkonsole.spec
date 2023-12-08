@@ -3,7 +3,7 @@
 #define commit 681221de51a234567ad832fc52441a4bd267741c
 
 Name:		qmlkonsole
-Version:	23.08.3
+Version:	23.08.4
 Release:	%{?git:0.%{git}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?git:1}
