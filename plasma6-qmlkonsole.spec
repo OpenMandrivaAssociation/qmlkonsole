@@ -3,8 +3,8 @@
 #define commit 681221de61a234667ad832fc62441a4bd267741c
 
 Name:		plasma6-qmlkonsole
-Version:	24.01.90
-Release:	%{?git:0.%{git}.}2
+Version:	24.01.95
+Release:	%{?git:0.%{git}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/master/qmlkonsole-master.tar.bz2
