@@ -31,6 +31,7 @@ BuildRequires:	cmake(KF6Config)
 BuildRequires:	cmake(KF6CoreAddons)
 BuildRequires:	cmake(KF6WindowSystem)
 BuildRequires:	cmake(KF6KirigamiAddons)
+BuildRequires:	cmake(KF6Pty)
 Requires:	qml(QMLTermWidget)
 
 %description
