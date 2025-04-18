@@ -4,8 +4,8 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name:		plasma6-qmlkonsole
-Version:	24.12.3
-Release:	%{?git:0.%{git}.}2
+Version:	25.04.0
+Release:	%{?git:0.%{git}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma-mobile/qmlkonsole/-/archive/%{gitbranch}/qmlkonsole-%{gitbranchd}.tar.bz2
