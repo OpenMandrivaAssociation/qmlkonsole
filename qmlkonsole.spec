@@ -4,7 +4,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name:		qmlkonsole
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?git:1}
@@ -14,8 +14,6 @@ Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/qmlko
 %endif
 License:	GPLv3
 Group:		Applications/Productivity
-BuildRequires:	cmake
-BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt6Core)
 BuildRequires:	cmake(Qt6Core5Compat)
@@ -34,23 +32,15 @@ BuildRequires:	cmake(KF6KirigamiAddons)
 BuildRequires:	cmake(KF6Pty)
 Requires:	qml(QMLTermWidget)
 
+%rename plasma6-qmlkonsole
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
 %description
 Terminal application for Plasma Mobile
 
-%prep
-%autosetup -p1 -n qmlkonsole-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja -G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-%find_lang qmlkonsole
-
-%files -f qmlkonsole.lang
+%files -f %{name}.lang
 %{_bindir}/qmlkonsole
 %{_datadir}/applications/org.kde.qmlkonsole.desktop
 %{_datadir}/config.kcfg/terminalsettings.kcfg
