@@ -4,7 +4,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name:		qmlkonsole
-Version:	25.08.3
+Version:	25.12.0
 Release:	%{?git:0.%{git}.}1
 Summary:	Terminal application for Plasma Mobile
 %if 0%{?git:1}
